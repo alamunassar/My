@@ -1,0 +1,150 @@
+MASTER BUILD PROMPT — OPEN ENGLISH PATHWAYS
+
+Act as a senior product designer, UX architect, full-stack engineer, accessibility specialist, and QA lead. Build a polished, trustworthy, production-minded English-learning platform called:
+
+OPEN ENGLISH PATHWAYS
+Free English Education Without Financial Barriers
+Tagline: Learn. Practice. Achieve.
+
+This is not a generic landing page. Build a coherent, responsive learning product with a premium visual identity, excellent usability, real navigation, meaningful content architecture, and working interactions. Aim for the quality of a leading global education platform while keeping the interface fast, lightweight, accessible, and usable on low-end Android phones and slow/unstable internet connections common in Yemen.
+
+IMPORTANT INPUT FILES ATTACHED
+1. Open_English_Pathways_All_Levels_Master_Source_Audit_v3_Added_Resources_Review.xlsx — complete 13-sheet source audit workbook.
+2. all_resources_register.csv and all_resources_register.json — normalized resource register (227 records) for import.
+3. video_audit.csv — separate video and series audit.
+4. new_resources_review.csv — newly reviewed resources, including TOEFL resources.
+5. a1_resource_library.csv — A1 resource list.
+6. critical_findings.csv and release_qa_checklist.csv — known limitations and release gates.
+7. new_horizons_original_logo.jpg — newly supplied original New Horizons logo, 1536 × 384. Use this exact asset; do not redraw, reinterpret, recolor, distort, crop away its symbol or wordmark, or invent a replacement. Preserve its 4:1 landscape aspect ratio. Use it modestly; do not claim it is vector or transparent.
+8. README_IMPORT_AND_QA.txt — import and publication cautions.
+
+FIRST TASK — INSPECT AND IMPORT THE ATTACHMENTS
+- Read the CSV/JSON and the workbook sheets before creating the resource catalogue.
+- Use the normalized JSON/CSV as the primary seed data and preserve every available field: CEFR level, category, provider, title, exact URL, skill/use, CEFR evidence, decision/status, access, rights/reuse notes, and reviewer notes.
+- Preserve all source records. Do not silently discard records just because they are pending review.
+- Import the 227 Unified Resource Register records into the app's data model if the current Bolt environment supports persistent storage. Also retain the separate A1 register, new TOEFL review, and video audit. Avoid accidental duplicate display where the same resource occurs in more than one sheet; retain provenance and audit details.
+- If you cannot parse/import a file, state exactly which file/rows failed and create an import report. Never claim all sources were imported unless verified by a record count and sample checks.
+- If database provisioning is available inside Bolt Cloud, use it for persistent data and authentication. Do not connect external services or ask for external API keys unless absolutely necessary. Prefer Bolt's built-in capabilities. If unavailable, make a clearly labeled prototype and state what is not persistent.
+
+BRAND AND VISUAL DIRECTION
+- Premium, modern, editorial education brand; clean, confident, optimistic, not childish and not cluttered.
+- Use a restrained palette inspired by the supplied logo: deep navy, bright blue, white, and a small warm orange accent. Maintain strong contrast and consistent spacing.
+- Use the original New Horizons logo asset in the header/footer only where appropriate and preserve its aspect ratio. Do not fabricate an official accreditation, government affiliation, university partnership, or endorsement.
+- Brand the learning initiative as “Open English Pathways”. Explain carefully: “A free volunteer-led learning initiative associated with New Horizons” only if this wording is approved. Do not imply that New Horizons legally owns or formally accredits the initiative unless written authorization confirms it.
+- Use real, purposeful interface elements, subtle motion, excellent typography, clear hierarchy, and a cohesive icon system. Avoid stock-photo overload, fake testimonials, fake counters, fake student faces, and decorative AI-generated imagery.
+- No AI tutor, chatbot, AI assistant, or AI-generated feedback feature. This project intentionally excludes AI assistance for now.
+
+LANGUAGE AND ACCESSIBILITY
+- FIRST VISIT DEFAULT: Arabic, with complete RTL layout and natural Arabic microcopy.
+- Put a prominent, easy-to-find Arabic / English language switch in the header on mobile and desktop.
+- English must switch the entire interface to LTR and translate navigation, buttons, forms, errors, empty states, help text, and accessibility labels.
+- Persist the selected language locally. Arabic is the default only when no saved preference exists; if a learner chooses English, keep English on later visits on that device/browser.
+- Learning-resource titles and publisher content remain in their original language; translate interface labels and explanations only.
+- The learning resources and original lesson titles remain in their source language (usually English); translate interface labels and explanations, not publisher titles.
+- Use semantic HTML, keyboard navigation, visible focus states, accessible labels, appropriate heading order, readable font sizes, and WCAG-conscious color contrast.
+- Mobile-first. Test narrow Android screens, tablet, and desktop. Avoid heavy animations and unnecessary libraries. Optimize images and lazy-load media.
+- Include low-bandwidth behavior: no autoplay, lightweight pages, clear external-link warnings, and a “save for later” or bookmark option where feasible. Do not promise offline access to third-party materials unless actually implemented and legally permitted.
+
+INFORMATION ARCHITECTURE AND PAGES
+Build these real pages/routes with a consistent header, footer, breadcrumbs where helpful, and working navigation:
+1. Home — clear mission, CTA to take placement test, browse levels, explore resources; explain free access and intended audience without invented impact statistics.
+2. Learning Levels — A1, A2, B1, B2, C1 as five separate CEFR pathways, with concise descriptions and a visible progression map.
+3. Level detail pages — overview, skills, resource collections, recommended learning sequence, progress checklist, and clear resource status.
+4. Resource Library — searchable/filterable catalogue by level, skill/category, provider, access type, and review status. Include clear “Open original resource” external links.
+5. Placement Test — build a transparent, original, short diagnostic prototype that can recommend a starting level. Do not claim it is an official CEFR-certified test. Explain that the result is indicative. If no validated question bank is supplied, create a small sample diagnostic and label it “pilot / indicative”, not a validated assessment.
+6. Practice Hub — structured practice entry points for listening, speaking, reading, writing, grammar, and vocabulary. Do not fabricate complete lesson content where no lesson content exists; use real curated resources and clearly labeled original practice activities.
+7. TOEFL Preparation — a separate section, not a CEFR level. Group the audited resources by reading, listening, speaking, writing, and mock tests. Clearly distinguish verified, partial, and unverified candidates. Never promise score outcomes.
+8. IELTS Preparation — a separate section only as a structured future-ready area. Do not invent audited IELTS resources. If no verified IELTS inventory is present, mark it “Coming soon — resources under review” and do not fabricate links.
+9. Student Dashboard — progress, saved resources, completed practice, recommended next steps, and achievements. Show real saved data only.
+10. Achievements — simple completion badges for platform activities. Avoid suggesting accreditation or an externally recognized qualification.
+11. About — explain the access problem, mission, method, target audience, and volunteer-led nature. Do not publish unconfirmed names or biographical claims.
+12. Contact / Feedback — accessible feedback form with validation, success/error states, and clear privacy note. Connect it to persistent storage only if supported and configured.
+13. Admin / Content Management — protected admin-only area if authentication and roles are genuinely implemented. Allow authorised administrators to add/edit/archive resources, change review status, and view import QA. Never expose admin controls to normal users.
+14. Privacy, Terms, Copyright & Disclaimer pages — plain-language policies. Do not claim legal review has occurred.
+
+RESOURCE GOVERNANCE — CRITICAL
+- The audit workbook is a research/audit source, not a blanket approval to publish every row.
+- Publish as approved core resources only rows explicitly approved for that level and whose status is sufficiently verified.
+- HOLD, PARTIAL, NOT VERIFIABLE, SUPPLEMENT ONLY, STRETCH ONLY, mixed-level, and pending rows must be hidden from default core recommendations or visibly marked “Under review”, “Supplement”, or “Not CEFR-certified”.
+- Never convert a provider's course numbering into a CEFR level without evidence.
+- Mixed-level series (e.g., A1/A2 or B1/B2 or B2/C1) must be classified at exact item/episode level only when evidence supports it.
+- TOEFL is independent of CEFR and must remain in its own preparation section.
+- Free access does not equal permission to reuse. Link to original publisher pages. Do not download, copy, mirror, rehost, scrape, or reproduce copyrighted books, videos, PDFs, audio, images, transcripts, or exercises without permission.
+- Preserve publisher names and exact URLs. Open external resources in a new tab with safe rel attributes and label them as external links.
+- Add “Last reviewed” and “Review status” fields where present. If dates are missing, do not invent them.
+- Add an admin review queue for all unresolved records.
+
+LEARNING EXPERIENCE
+- A learner should be able to start from the home page, choose a level or take the indicative placement test, browse a resource, bookmark it, and record completion.
+- Provide a clear weekly learning pathway template but do not falsely present it as a complete curriculum if the source files do not contain complete lesson-by-lesson content.
+- Provide skill filters and meaningful empty states.
+- Every resource card should show title, provider, level/status, skill, access note, and an accessible action button.
+- Keep publisher content on its original site; the platform curates and guides learning rather than claiming ownership of third-party materials.
+
+STUDENT ACCOUNTS AND DATA
+- If Bolt Cloud supports a built-in database and authentication in this project, implement secure sign-up/sign-in, password recovery if available, session handling, and user-specific progress/bookmarks. Use least-privilege roles and protect admin routes and data.
+- If those services require a user decision or unavailable setup, do not fake them. Build the interface with a demo mode clearly labeled and provide a concise list of the exact remaining setup steps.
+- Do not collect unnecessary personal data. Do not collect date of birth, phone number, location, or sensitive information unless strictly required.
+- Include a way to delete a learner account/data if persistent accounts are implemented.
+
+TECHNICAL QUALITY
+- Use a maintainable component architecture and typed data models where supported.
+- Create a single source of truth for resources and translations.
+- Add loading, empty, success, and error states for every data-driven view.
+- Validate forms on client and server where server functions are available.
+- Sanitize user-submitted content and protect against common web vulnerabilities.
+- Ensure external links, routing, filters, language switching, resource bookmarks, placement flow, progress updates, and forms actually work.
+- No dead buttons, placeholder links, fake charts, lorem ipsum, or “coming soon” labels except the explicitly permitted IELTS section if no verified IELTS resources exist.
+- Add page titles, meta descriptions, social preview metadata, favicon based on the supplied logo only if a clean crop can be made without altering the mark, and sitemap/robots basics where supported.
+- Optimize for Core Web Vitals and avoid unnecessary dependencies.
+
+DATA IMPORT QA — MUST REPORT RESULTS
+After import, produce a visible admin import summary or downloadable report containing:
+- Number of records read from all_resources_register.json/CSV.
+- Number actually inserted.
+- Number skipped as duplicates (with reason).
+- Number with missing URLs or required fields.
+- Count by CEFR level and by review decision/status.
+- Count of TOEFL records separately.
+- A list of rows that failed to import.
+- Confirm that sample records from A1, A2, B1, B2, C1, and TOEFL preserve their exact original URLs and status fields.
+Do not invent counts. Compare imported counts against the source files.
+
+RELEASE QA — DO NOT CALL IT PRODUCTION-READY UNTIL VERIFIED
+Run the app and test:
+- Every route and navigation item.
+- Arabic RTL and English LTR switching on mobile and desktop.
+- Search, filters, sorting, resource external links, and status labels.
+- Placement test flow and transparent indicative-result messaging.
+- Signup/login/protected routes only if truly implemented.
+- Bookmark/progress persistence after refresh only if truly implemented.
+- Admin permissions and import report.
+- Feedback form validation and storage only if truly implemented.
+- Keyboard navigation, contrast, responsive layouts, loading/error/empty states.
+- No console errors, broken images, dead links, or fake functionality.
+
+DELIVERABLES
+1. A polished, functional responsive web application.
+2. A working resource catalogue populated from the attached audit data, with verified/pending status rules.
+3. A concise BUILD & IMPORT REPORT stating what works, what was imported, what failed, and any configuration still required.
+4. A RELEASE QA CHECKLIST with pass/fail/not-tested results.
+5. A short “Before public launch” list, especially written permission to use New Horizons name/logo and review of content rights.
+
+WORK METHOD
+- Start by inspecting attachments and planning the data model and pages.
+- Then implement the complete experience in coherent phases without stopping after a static mockup.
+- Prioritise a strong usable MVP with the complete resource data model and honest status handling over decorative features.
+- If a requirement cannot be completed, explain the limitation and provide the smallest practical next step. Never silently substitute a fake feature.
+- At the end, show the preview and the exact steps needed to publish. Do not claim the site is live until it has actually been published and tested.
+
+
+CONFIRMED PROJECT DETAILS — USE CAREFULLY
+- Initiative name: Open English Pathways.
+- Subtitle: Free English Education Without Financial Barriers.
+- Tagline: Learn. Practice. Achieve.
+- Founder/coordinator: Ala Nabil Nasser Mohammed Munassar.
+- Research/resource-audit contributor: Sohail adel abdullah al othmani.
+- Do not infer additional personal details, credentials, dates, or responsibilities.
+- The user requires Arabic as the first-visit default, then an easy language switch to English. Persist the selected language across visits on the same device/browser.
+- New Horizons logo is supplied as an original asset. Its public use remains subject to written permission from the institute. Until permission is confirmed, use the logo in draft/preview only and document how to hide it before public launch.
+- The public-facing contributor/team page must remain unpublished or editable until both contributors confirm their preferred public names and consent to display them.
